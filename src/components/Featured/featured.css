@@ -6,3 +6,7 @@
     background: #f0f0f0;
     transition-duration: 400ms;
 }
+.card:hover .token{
+    background: yellow;
+    transition-duration: 400ms;
+}

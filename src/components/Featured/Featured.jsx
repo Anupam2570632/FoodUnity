@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { GoLocation } from "react-icons/go";
 import './featured.css'
+import { Link } from "react-router-dom";
 
 const Featured = () => {
 
@@ -35,7 +36,7 @@ const Featured = () => {
                     foods?.map((food, idx) => <div className="card mx-auto flex flex-col border shadow-lg p-5 rounded-[10px] space-y-6 w-full" key={idx}>
                         <div className="relative w-full overflow-hidden">
                             <img className="cardImg h-[250px] rounded-[6px] w-[100%] object-cover object-center" src={food.foodImage} alt="" />
-                            <h2 className="absolute inset-0 rounded-[6px] flex items-start justify-end p-6 bg-black bg-opacity-40"><span className="bg-orange-400 text-[#1E3A8A] font-bold px-4 py-2">Available : {food.foodQuantity}</span></h2>
+                            <h2 className=" absolute inset-0 rounded-[6px] flex items-start justify-end p-6 bg-black bg-opacity-40"><span className="token rounded-sm bg-orange-400 text-[#1E3A8A] font-bold px-4 py-2">Available : {food.foodQuantity}</span></h2>
                         </div>
                         <div className="space-y-4 flex-1">
                             <h2 className="text-[#1E3A8A] font-bold text-2xl">{food.foodName}</h2>
@@ -58,6 +59,11 @@ const Featured = () => {
                         <button className="btn bg-[#1E3A8A] hover:bg-[#006BB3] text-white duration-300 btn-block">View Details</button>
                     </div>)
                 }
+            </div>
+            <div className="flex items-center justify-center">
+                <Link to={'/available'}>
+                    <button className="btn w-32 bg-[#4CAF50] hover:bg-[#45a049] duration-300 text-white">Show All</button>
+                </Link>
             </div>
         </div>
     );
