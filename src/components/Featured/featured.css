@@ -1,0 +1,8 @@
+.card:hover .cardImg {
+  transform: scale(1.1);
+  transition-duration: 400ms;
+}
+.card:hover{
+    background: #f0f0f0;
+    transition-duration: 400ms;
+}

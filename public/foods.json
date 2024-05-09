@@ -1,0 +1,86 @@
+[
+    {
+        "foodImage": "https://plus.unsplash.com/premium_photo-1674511582428-58ce834ce172?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "foodName": "Spaghetti Carbonara",
+        "donator": {
+            "image": "https://s.gravatar.com/avatar/57822a5552145c86b1a8d2750b8b3ac4?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fan.png",
+            "name": "Anupam Roy",
+            "email": "anu@24.com"
+        },
+        "foodQuantity": 2,
+        "pickupLocation": "123 Main Street, Cityville",
+        "expiredDate": "2024-05-15",
+        "additionalNotes": "This delicious spaghetti carbonara contains dairy. It's a classic Italian dish with a creamy sauce, crispy bacon, and al dente pasta. Enjoy the rich flavors and comforting warmth of this hearty meal. Please note: Although precautions are taken to avoid cross-contamination, it may contain traces of nuts due to shared kitchen equipment.",
+        "viewDetailsButton": "https://example.com/details/1"
+    },
+    {
+        "foodImage": "https://images.unsplash.com/photo-1604908177453-7462950a6a3b?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "foodName": "Vegetable Stir-Fry",
+        "donator": {
+            "image": "https://s.gravatar.com/avatar/57822a5552145c86b1a8d2750b8b3ac4?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fan.png",
+            "name": "Anupam Roy",
+            "email": "anu@24.com"
+        },
+        "foodQuantity": 1,
+        "pickupLocation": "456 Oak Avenue, Townsville",
+        "expiredDate": "2024-05-16",
+        "additionalNotes": "This vegetable stir-fry is vegan-friendly and gluten-free. Bursting with colorful vegetables and flavorful seasoning, it's a healthy and satisfying dish suitable for any dietary preference. Enjoy the crisp texture and vibrant taste of fresh veggies, cooked to perfection. Please note: Our kitchen strictly adheres to vegan practices, but cross-contamination may occur with gluten-containing ingredients.",
+        "viewDetailsButton": "https://example.com/details/2"
+    },
+    {
+        "foodImage": "https://images.pexels.com/photos/8992836/pexels-photo-8992836.jpeg",
+        "foodName": "Chicken Curry",
+        "donator": {
+            "image": "https://s.gravatar.com/avatar/57822a5552145c86b1a8d2750b8b3ac4?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fan.png",
+            "name": "Anupam Roy",
+            "email": "anu@24.com"
+        },
+        "foodQuantity": 4,
+        "pickupLocation": "789 Elm Road, Villagetown",
+        "expiredDate": "2024-05-14",
+        "additionalNotes": "Our chicken curry is a flavorful delight made with tender chicken pieces and aromatic spices. It's a perfect balance of heat and flavor, sure to tantalize your taste buds. This dish contains peanuts and is dairy-free, making it suitable for those with dietary restrictions. Please note: While we take precautions to prevent cross-contamination, traces of allergens may be present due to shared cooking equipment.",
+        "viewDetailsButton": "https://example.com/details/3"
+    },
+    {
+        "foodImage": "https://images.unsplash.com/photo-1542282811-943ef1a977c3?q=80&w=1772&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "foodName": "Margherita Pizza",
+        "donator": {
+            "image": "https://s.gravatar.com/avatar/57822a5552145c86b1a8d2750b8b3ac4?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fan.png",
+            "name": "Anupam Roy",
+            "email": "anu@24.com"
+        },
+        "foodQuantity": 1,
+        "pickupLocation": "321 Pine Street, Hamletville",
+        "expiredDate": "2024-05-15",
+        "additionalNotes": "Our Margherita pizza is a classic Italian favorite, topped with fresh tomatoes, mozzarella cheese, and fragrant basil leaves. It's a delightful combination of flavors that will transport you to the streets of Naples. This pizza is vegetarian and contains gluten. Please note: While we strive to maintain strict dietary standards, cross-contamination may occur in our kitchen, so individuals with severe allergies should exercise caution.",
+        "viewDetailsButton": "https://example.com/details/4"
+    },
+    {
+        "foodImage": "https://images.pexels.com/photos/1833332/pexels-photo-1833332.jpeg",
+        "foodName": "Fresh Fruit Salad",
+        "donator": {
+            "image": "https://s.gravatar.com/avatar/57822a5552145c86b1a8d2750b8b3ac4?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fan.png",
+            "name": "Anupam Roy",
+            "email": "anu@24.com"
+        },
+        "foodQuantity": 1,
+        "pickupLocation": "567 Maple Avenue, Countryside",
+        "expiredDate": "2024-05-16",
+        "additionalNotes": "Our fresh fruit salad is a refreshing blend of seasonal fruits, handpicked for optimal flavor and juiciness. It's a healthy and delicious option, perfect for any occasion. This salad contains no added sugar and is made with organic ingredients. Please note: While we take great care in preparing our dishes, cross-contamination may occur, so individuals with specific dietary requirements should exercise caution.",
+        "viewDetailsButton": "https://example.com/details/5"
+    },
+    {
+        "foodImage": "https://images.unsplash.com/photo-1555050338-0abc773f7978?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "foodName": "Chocolate Cake",
+        "donator": {
+            "image": "https://s.gravatar.com/avatar/57822a5552145c86b1a8d2750b8b3ac4?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fan.png",
+            "name": "Anupam Roy",
+            "email": "anu@24.com"
+        },
+        "foodQuantity": 1,
+        "pickupLocation": "987 Cedar Street, Suburbia",
+        "expiredDate": "2024-05-14",
+        "additionalNotes": "Indulge in the decadent goodness of our chocolate cake, made with the finest quality ingredients. Each bite is a heavenly experience, rich in flavor and moist in texture. Our cake contains gluten and is not suitable for those with gluten intolerance. Please note: While we strive to maintain a gluten-free environment, cross-contamination may occur, so individuals with severe allergies should exercise caution.",
+        "viewDetailsButton": "https://example.com/details/6"
+    }
+]
