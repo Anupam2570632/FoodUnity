@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { useQuery } from "@tanstack/react-query";
 import { GoLocation } from "react-icons/go";
 import { BiSearch } from 'react-icons/bi';

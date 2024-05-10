@@ -26,7 +26,7 @@ const NavBar = () => {
             <header className="flex  max-w-[1500px] flex-wrap md:py-3 lg:justify-start lg:flex-nowrap z-50 w-11/12 mx-auto xl:w-4/5">
                 <nav className="relative w-full flex flex-wrap lg:grid lg:grid-cols-12 basis-full items-center mx-auto" aria-label="Global">
                     <div className="lg:col-span-2">
-                        <Link className="flex-none rounded-xl text-xl inline-block font-semibold focus:outline-none focus:opacity-80" href="../templates/creative-agency/index.html" aria-label="Preline">
+                        <Link className="flex-none rounded-xl text-xl inline-block font-semibold focus:outline-none focus:opacity-80" aria-label="Preline">
                             <img src={logo} className="w-28 lg:w-[60%]" alt="" />
                         </Link>
                     </div>

@@ -17,7 +17,8 @@ const AddFood = () => {
         const donarEmail = form.donarEmail.value;
         const foodQuantity = form.foodQuantity.value;
         const foodStatus = form.foodStatus.value;
-        const food = { foodName, foodImage, expiredDate, additionalNotes, donarName, donarImage, donarEmail, foodQuantity, foodStatus }
+        const pickupLocation = form.pickupLocation.value;
+        const food = { foodName, foodImage, expiredDate, additionalNotes, donarName, donarImage, pickupLocation, donarEmail, foodQuantity, foodStatus }
         console.log(food)
 
         axios.post('http://localhost:5000/foods', food)
