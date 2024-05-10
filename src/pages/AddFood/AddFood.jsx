@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import axios from "axios";
+import swal from "sweetalert";
 
 const AddFood = () => {
     const { user } = useContext(AuthContext)
@@ -21,7 +22,14 @@ const AddFood = () => {
 
         axios.post('http://localhost:5000/foods', food)
             .then(res => {
-                console.log(res)
+                console.log(res.data)
+                if (res.data.insertedId) {
+                    swal({
+                        title: "Food added successfully !",
+                        icon: "success",
+                    });
+                    form.reset()
+                }
             })
     }
 
