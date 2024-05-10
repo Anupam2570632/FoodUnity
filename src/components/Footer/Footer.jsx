@@ -5,11 +5,11 @@ const Footer = () => {
     return (
         <div>
             <footer className="mt-auto bg-[#e6feff] w-full ">
-                <div className="mt-auto w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 lg:pt-20 mx-auto">
+                <div className="mt-auto w-full max-w-[85rem] py-10 sm:px-6 px-4 lg:pt-20 mx-auto">
                     <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
                         <div className="col-span-full lg:col-span-1">
                             <Link to={'/'} className="flex-none text-xl font-semibold" aria-label="Brand">
-                                <img className='w-[35%] lg:w-[80%]' src={logo} alt="" />
+                                <img className='w-[35%] lg:w-[65%]' src={logo} alt="" />
                             </Link>
                         </div>
 
@@ -35,7 +35,7 @@ const Footer = () => {
                         </div>
 
                         <div className="col-span-2">
-                            <h4 className="font-semibold text-gray-100">Stay up to date</h4>
+                            <h4 className="font-semibold">Stay up to date</h4>
 
                             <form>
                                 <div className="mt-4 flex flex-col items-center gap-2 sm:flex-row sm:gap-3 bg-white rounded-lg p-2 dark:bg-neutral-900">

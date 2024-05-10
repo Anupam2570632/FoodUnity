@@ -11,7 +11,7 @@ const NavBar = () => {
     };
 
     return (
-        <div className='w-full bg-[#e6feff] sticky z-10 top-0'>
+        <div className='w-full bg-[#e6feff] shadow-lg sticky z-10 top-0'>
             <header className="flex  max-w-[1500px] flex-wrap md:py-3 lg:justify-start lg:flex-nowrap z-50 w-11/12 mx-auto xl:w-4/5">
                 <nav className="relative w-full flex flex-wrap lg:grid lg:grid-cols-12 basis-full items-center mx-auto" aria-label="Global">
                     <div className="lg:col-span-2">
@@ -21,9 +21,11 @@ const NavBar = () => {
                     </div>
 
                     <div className="flex items-center gap-x-2 ms-auto py-1 lg:ps-6 lg:order-3 lg:col-span-2">
-                        <button type="button" className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-xl border border-gray-200 text-black hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:border-neutral-700 dark:hover:bg-white/10 dark:text-white dark:hover:text-white">
-                            LogIn
-                        </button>
+                        <Link to={'/login'}>
+                            <button type="button" className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-xl border border-gray-200 text-black hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:border-neutral-700 dark:hover:bg-white/10 dark:text-white dark:hover:text-white">
+                                LogIn
+                            </button>
+                        </Link>
                         <button type="button" className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-xl border border-transparent bg-lime-400 text-black hover:bg-lime-500 transition disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-lime-500">
                             SignUp
                         </button>
