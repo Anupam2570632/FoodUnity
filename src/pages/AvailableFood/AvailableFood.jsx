@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { GoLocation } from "react-icons/go";
 import { BiSearch } from 'react-icons/bi';
 import './food.css';
+import { useState } from "react";
 
 const AvailableFood = () => {
     const { isPending, data: foods } = useQuery({
@@ -11,6 +12,8 @@ const AvailableFood = () => {
             return res.json();
         }
     });
+
+    const [isLayout, setIsLayout] = useState(false)
 
     const [searchInput, setSearchInput] = useState('');
     const [selectedFood, setSelectedFood] = useState(null);
@@ -87,11 +90,12 @@ const AvailableFood = () => {
                         <option value="expiryDateDesc">Expiry Date (Descending)</option>
                     </select>
                 </div>
+                <button className="btn bg-green-600 hover:bg-green-700 duration-300 text-white font-bold" onClick={() => setIsLayout(!isLayout)}>Change LayOut</button>
             </div>
             {filteredFoods.length === 0 ? (
                 <div className="text-center text-gray-500 dark:text-gray-400">No food found.</div>
             ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className={`grid grid-cols-1 md:grid-cols-2 ${isLayout ? 'lg:grid-cols-3': 'lg:grid-cols-2'} gap-6`}>
                     {filteredFoods.map((food, idx) => (
                         <div className="card mx-auto flex flex-col border shadow-lg p-5 rounded-[10px] space-y-6 w-full" key={idx}>
                             {/* Render food card */}
