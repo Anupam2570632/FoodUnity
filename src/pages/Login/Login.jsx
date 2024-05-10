@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { BsGithub } from 'react-icons/bs';
 import { CgGoogle } from 'react-icons/cg';
+import { Link } from 'react-router-dom';
 
 export default function Login() {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -18,9 +19,9 @@ export default function Login() {
                         <h1 className="block text-2xl font-bold text-gray-800 dark:text-white">Sign in</h1>
                         <p className="mt-2 text-sm text-gray-600 dark:text-neutral-400">
                             Don&apos;t have an account yet?
-                            <a className="text-blue-600 decoration-2 hover:underline font-medium dark:text-blue-500" href="../examples/html/signup.html">
+                            <Link to={'/register'} className="text-blue-600 decoration-2 hover:underline font-medium dark:text-blue-500">
                                 Sign up here
-                            </a>
+                            </Link>
                         </p>
                     </div>
 

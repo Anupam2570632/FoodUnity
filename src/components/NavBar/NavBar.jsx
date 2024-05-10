@@ -26,9 +26,11 @@ const NavBar = () => {
                                 LogIn
                             </button>
                         </Link>
-                        <button type="button" className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-xl border border-transparent bg-lime-400 text-black hover:bg-lime-500 transition disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-lime-500">
-                            SignUp
-                        </button>
+                        <Link to={'/register'}>
+                            <button type="button" className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-xl border border-transparent bg-lime-400 text-black hover:bg-lime-500 transition disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-lime-500">
+                                SignUp
+                            </button>
+                        </Link>
 
                         <div className="lg:hidden">
                             <button type="button" onClick={toggleDropdown} className="hs-collapse-toggle size-[38px] flex justify-center items-center text-sm font-semibold rounded-xl border border-gray-200 text-black hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:border-neutral-700 dark:hover:bg-neutral-700" aria-controls="navbar-collapse-with-animation" aria-label="Toggle navigation">
