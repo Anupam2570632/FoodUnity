@@ -7,9 +7,7 @@ export default function Login() {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
         console.log(data);
-        console.log("Hello");
     };
-    console.log(errors);
 
     return (
         <div className='w-full bg-[#f3f4f6] py-16'>
