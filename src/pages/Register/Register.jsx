@@ -1,12 +1,29 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Register = () => {
+    const { createAccount, logOut, updateUser } = useContext(AuthContext)
     const { register, handleSubmit, formState: { errors }, watch } = useForm();
-    
+
     const onSubmit = data => {
-        console.log(data);
-        console.log("Hello");
+        createAccount(data.email, data.password)
+            .then(result => {
+                console.log(result.user)
+                updateUser(data)
+                    .then(result => {
+                        console.log(result)
+                    })
+                    .catch(error=>{
+                        console.error(error)
+                    })
+                // logOut()
+
+            })
+            .catch(error => {
+                console.error(error)
+            })
     };
 
     const password = watch("password");

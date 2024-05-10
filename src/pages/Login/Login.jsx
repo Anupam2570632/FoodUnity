@@ -1,12 +1,24 @@
+import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { BsGithub } from 'react-icons/bs';
 import { CgGoogle } from 'react-icons/cg';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 export default function Login() {
+    const { logIn } = useContext(AuthContext)
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
-        console.log(data);
+        const email = data.email;
+        const password = data.password
+        logIn(email, password)
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.error(error)
+            })
+
     };
 
     return (
@@ -25,11 +37,11 @@ export default function Login() {
 
                     <div className="mt-5">
                         <button type="button" className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800">
-                            <CgGoogle/>
+                            <CgGoogle />
                             Sign in with Google
                         </button>
                         <button type="button" className="w-full mt-2 py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800">
-                            <BsGithub/>
+                            <BsGithub />
                             Sign in with Github
                         </button>
 
