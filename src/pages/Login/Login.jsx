@@ -1,24 +1,30 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { BsGithub } from 'react-icons/bs';
 import { CgGoogle } from 'react-icons/cg';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import { toast } from 'react-toastify';
 
 export default function Login() {
-    const { logIn } = useContext(AuthContext)
+    const navigate = useNavigate()
+    const location = useLocation()
+    const { logIn } = useContext(AuthContext);
+    const [loginError, setLoginError] = useState(null);
     const { register, handleSubmit, formState: { errors } } = useForm();
+
     const onSubmit = data => {
-        const email = data.email;
-        const password = data.password
+        const { email, password } = data;
         logIn(email, password)
             .then(result => {
-                console.log(result.user)
+                console.log(result.user);
+                toast.success('User logged in successfully!')
+                navigate(location?.state ? location.state : '/')
             })
             .catch(error => {
-                console.error(error)
-            })
-
+                console.error(error);
+                setLoginError("Invalid email or password. Please try again.");
+            });
     };
 
     return (
@@ -52,12 +58,9 @@ export default function Login() {
                                 <div>
                                     <label htmlFor="email" className="block text-sm mb-2 dark:text-white">Email address</label>
                                     <div className="relative">
-                                        <input placeholder='Email' type="email" id="email" {...register("email")} className="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" required aria-describedby="email-error" />
-                                        <div className="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
-                                            {/* Error SVG */}
-                                        </div>
+                                        <input placeholder='Email' autoComplete='true' type="email" id="email" {...register("email")} className="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" required aria-describedby="email-error" />
                                     </div>
-                                    <p className="hidden text-xs text-red-600 mt-2" id="email-error">Please include a valid email address so we can get back to you</p>
+                                    {errors.email && <p className="text-xs text-red-600 mt-2">Please include a valid email address.</p>}
                                 </div>
 
                                 <div>
@@ -67,11 +70,8 @@ export default function Login() {
                                     </div>
                                     <div className="relative">
                                         <input placeholder='Password' type="password" id="password" {...register("password")} className="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" required aria-describedby="password-error" />
-                                        <div className="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
-                                            {/* Error SVG */}
-                                        </div>
                                     </div>
-                                    <p className="hidden text-xs text-red-600 mt-2" id="password-error">8+ characters required</p>
+                                    {errors.password && <p className="text-xs text-red-600 mt-2">Password is required.</p>}
                                 </div>
 
                                 <div className="flex items-center">
@@ -82,6 +82,8 @@ export default function Login() {
                                         <label htmlFor="remember-me" className="text-sm dark:text-white">Remember me</label>
                                     </div>
                                 </div>
+
+                                {loginError && <p className="text-xs text-red-600 mt-2">{loginError}</p>}
 
                                 <button type="submit" className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Sign in</button>
                             </div>

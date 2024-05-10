@@ -8,8 +8,13 @@ const Featured = () => {
     const { isPending, data: foods } = useQuery({
         queryKey: ['foods'],
         queryFn: async () => {
-            const res = await fetch('/foods.json')
-            return res.json()
+            const res = await fetch('http://localhost:5000/foods')
+            const data = await res.json();
+
+            const sortedFoods = data.sort((a, b) => b.foodQuantity - a.foodQuantity);
+
+            return sortedFoods;
+
         }
     })
     if (isPending) {
@@ -33,7 +38,7 @@ const Featured = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {
-                    foods?.map((food, idx) => <div className="card mx-auto flex flex-col border shadow-lg p-5 rounded-[10px] space-y-6 w-full" key={idx}>
+                    foods?.slice(0, 6).map((food, idx) => <div className="card mx-auto flex flex-col border shadow-lg p-5 rounded-[10px] space-y-6 w-full" key={idx}>
                         <div className="relative w-full overflow-hidden">
                             <img className="cardImg h-[250px] rounded-[6px] w-[100%] object-cover object-center" src={food.foodImage} alt="" />
                             <h2 className=" absolute inset-0 rounded-[6px] flex items-start justify-end p-6 bg-black bg-opacity-40"><span className="token rounded-sm bg-orange-400 text-[#1E3A8A] font-bold px-4 py-2">Available : {food.foodQuantity}</span></h2>
@@ -49,10 +54,10 @@ const Featured = () => {
                             <hr />
 
                             <div className="flex gap-4 items-center">
-                                <img className="w-10 rounded-full h-10 object-cover object-center" src={food.donator.image} alt="" />
+                                <img className="w-10 rounded-full h-10 object-cover object-center" src={food.donarImage} alt="" />
                                 <div>
-                                    <h1 className="text-[#006400] text-[18px] font-bold">{food.donator.name}</h1>
-                                    <h1>{food.donator.email}</h1>
+                                    <h1 className="text-[#006400] text-[18px] font-bold">{food.donarName}</h1>
+                                    <h1>{food.donarEmail}</h1>
                                 </div>
                             </div>
                         </div>

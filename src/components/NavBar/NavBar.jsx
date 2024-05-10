@@ -1,14 +1,25 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import logo from '../../assets/logoFood1.png';
 import { Link, NavLink } from 'react-router-dom';
 import './navbar.css'
+import { AuthContext } from '../../AuthProvider/AuthProvider';
+import { toast } from 'react-toastify';
 
 const NavBar = () => {
+    const { user, logOut } = useContext(AuthContext)
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
     };
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                toast.success('User log out successfully!')
+            })
+            .catch()
+    }
 
     return (
         <div className='w-full bg-[#e6feff] shadow-lg sticky z-10 top-0'>
@@ -21,16 +32,32 @@ const NavBar = () => {
                     </div>
 
                     <div className="flex items-center gap-x-2 ms-auto py-1 lg:ps-6 lg:order-3 lg:col-span-2">
-                        <Link to={'/login'}>
-                            <button type="button" className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-xl border border-gray-200 text-black hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:border-neutral-700 dark:hover:bg-white/10 dark:text-white dark:hover:text-white">
-                                LogIn
-                            </button>
-                        </Link>
-                        <Link to={'/register'}>
-                            <button type="button" className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-xl border border-transparent bg-lime-400 text-black hover:bg-lime-500 transition disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-lime-500">
-                                SignUp
-                            </button>
-                        </Link>
+                        {
+                            user ?
+                                <div className='flex items-center gap-3'>
+                                    <div className="avatar">
+                                        <div className="w-8 h-8 rounded-full ring ring-accent ring-offset-base-100 ring-offset-2">
+                                            <img src={user.photoURL} />
+                                        </div>
+                                    </div>
+                                    <button onClick={handleLogOut} type="button" className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-xl border border-transparent bg-lime-400 text-black hover:bg-lime-500 transition disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-lime-500">
+                                        LogOut
+                                    </button>
+                                </div>
+                                :
+                                <>
+                                    <Link to={'/login'}>
+                                        <button type="button" className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-xl border border-gray-200 text-black hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:border-neutral-700 dark:hover:bg-white/10 dark:text-white dark:hover:text-white">
+                                            LogIn
+                                        </button>
+                                    </Link>
+                                    <Link to={'/register'}>
+                                        <button type="button" className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-xl border border-transparent bg-lime-400 text-black hover:bg-lime-500 transition disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-lime-500">
+                                            SignUp
+                                        </button>
+                                    </Link>
+                                </>
+                        }
 
                         <div className="lg:hidden">
                             <button type="button" onClick={toggleDropdown} className="hs-collapse-toggle size-[38px] flex justify-center items-center text-sm font-semibold rounded-xl border border-gray-200 text-black hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:border-neutral-700 dark:hover:bg-neutral-700" aria-controls="navbar-collapse-with-animation" aria-label="Toggle navigation">
