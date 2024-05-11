@@ -3,6 +3,7 @@ import { GoLocation } from "react-icons/go";
 import { BiSearch } from 'react-icons/bi';
 import './food.css';
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const AvailableFood = () => {
     const { isPending, data: foods } = useQuery({
@@ -13,7 +14,7 @@ const AvailableFood = () => {
         }
     });
 
-    const [isLayout, setIsLayout] = useState(false)
+    const [isLayout, setIsLayout] = useState(true)
 
     const [searchInput, setSearchInput] = useState('');
     const [selectedFood, setSelectedFood] = useState(null);
@@ -95,7 +96,7 @@ const AvailableFood = () => {
             {filteredFoods.length === 0 ? (
                 <div className="text-center text-gray-500 dark:text-gray-400">No food found.</div>
             ) : (
-                <div className={`grid grid-cols-1 md:grid-cols-2 ${isLayout ? 'lg:grid-cols-3': 'lg:grid-cols-2'} gap-6`}>
+                <div className={`grid grid-cols-1 md:grid-cols-2 ${isLayout ? 'lg:grid-cols-3' : 'lg:grid-cols-2'} gap-6`}>
                     {filteredFoods.map((food, idx) => (
                         <div className="card mx-auto flex flex-col border shadow-lg p-5 rounded-[10px] space-y-6 w-full" key={idx}>
                             {/* Render food card */}
@@ -120,7 +121,9 @@ const AvailableFood = () => {
                                     </div>
                                 </div>
                             </div>
-                            <button className="btn bg-[#1E3A8A] hover:bg-[#006BB3] text-white duration-300 btn-block">View Details</button>
+                            <Link to={`/foodDetails/${food._id}`}>
+                                <button className="btn bg-[#1E3A8A] hover:bg-[#006BB3] text-white duration-300 btn-block">View Details</button>
+                            </Link>
                         </div>
                     ))}
                 </div>

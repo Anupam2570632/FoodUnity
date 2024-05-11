@@ -61,7 +61,9 @@ const Featured = () => {
                                 </div>
                             </div>
                         </div>
-                        <button className="btn bg-[#1E3A8A] hover:bg-[#006BB3] text-white duration-300 btn-block">View Details</button>
+                        <Link to={`/foodDetails/${food._id}`}>
+                            <button className="btn bg-[#1E3A8A] hover:bg-[#006BB3] text-white duration-300 btn-block">View Details</button>
+                        </Link>
                     </div>)
                 }
             </div>
