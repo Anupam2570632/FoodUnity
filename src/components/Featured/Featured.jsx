@@ -11,7 +11,9 @@ const Featured = () => {
             const res = await fetch('http://localhost:5000/foods')
             const data = await res.json();
 
-            const sortedFoods = data.sort((a, b) => b.foodQuantity - a.foodQuantity);
+            const filteredFoods = data.filter(food => food.foodStatus !== 'requested')
+
+            const sortedFoods = filteredFoods.sort((a, b) => b.foodQuantity - a.foodQuantity);
 
             return sortedFoods;
 

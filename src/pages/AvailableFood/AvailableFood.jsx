@@ -6,13 +6,16 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const AvailableFood = () => {
-    const { isPending, data: foods } = useQuery({
+    const { isPending, data: allFoods } = useQuery({
         queryKey: ['foods'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/foods');
             return res.json();
         }
     });
+
+    const foods = allFoods?.filter(food => food.foodStatus !== 'requested')
+
 
     const [isLayout, setIsLayout] = useState(true)
 

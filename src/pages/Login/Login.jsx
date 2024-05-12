@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 export default function Login() {
     const navigate = useNavigate()
     const location = useLocation()
-    const { logIn } = useContext(AuthContext);
+    const { logIn, GoogleLogIn, GithubLogIn } = useContext(AuthContext);
     const [loginError, setLoginError] = useState(null);
     const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -27,6 +27,27 @@ export default function Login() {
             });
     };
 
+    const handleGoogleLogIn = () => {
+        GoogleLogIn()
+            .then(result => {
+                toast.success('Logged in Successfully')
+                navigate(location?.state ? location.state : '/')
+            })
+            .catch(error => {
+                toast.error(error.message)
+            })
+    }
+    const handleGithubLogIn = () => {
+        GithubLogIn()
+            .then(result => {
+                toast.success('Logged in Successfully')
+                navigate(location?.state ? location.state : '/')
+            })
+            .catch(error => {
+                toast.error(error.message)
+            })
+    }
+
     return (
         <div className='w-full bg-[#f3f4f6] py-16'>
             <div className="max-w-[400px] mx-auto bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-neutral-900 dark:border-neutral-700">
@@ -42,11 +63,11 @@ export default function Login() {
                     </div>
 
                     <div className="mt-5">
-                        <button type="button" className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800">
+                        <button onClick={handleGoogleLogIn} type="button" className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800">
                             <CgGoogle />
                             Sign in with Google
                         </button>
-                        <button type="button" className="w-full mt-2 py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800">
+                        <button onClick={handleGithubLogIn} type="button" className="w-full mt-2 py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800">
                             <BsGithub />
                             Sign in with Github
                         </button>
