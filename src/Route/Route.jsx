@@ -38,7 +38,7 @@ const router = createBrowserRouter([
             {
                 path: '/foodDetails/:id',
                 element: <PrivateRoute><FoodDetails /></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/food/${params.id}`)
+                loader: ({ params }) => fetch(`https://food-unity-server-gamma.vercel.app/food/${params.id}`)
             },
             {
                 path: '/requestedFood',
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
             {
                 path:'/updateFood/:id',
                 element:<PrivateRoute><UpdateFood/></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/food/${params.id}`)
+                loader: ({ params }) => fetch(`https://food-unity-server-gamma.vercel.app/food/${params.id}`)
             }
         ]
     },

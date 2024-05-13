@@ -9,14 +9,14 @@ const UpdateFood = () => {
     const { isPending, data: food, refetch } = useQuery({
         queryKey: ['food'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/food/${id}`, { credentials: 'include' });
+            const res = await fetch(`https://food-unity-server-gamma.vercel.app/food/${id}`, { credentials: 'include' });
             return res.json();
         }
     });
     const updateFoodMutation = useMutation({
         queryKey: 'updateFood',
         mutationFn: async (id) => {
-            const res = await axios.put(`http://localhost:5000/foods/?id=${id}`);
+            const res = await axios.put(`https://food-unity-server-gamma.vercel.app/foods/?id=${id}`);
             return res.data;
         },
         onSuccess: () => {
@@ -59,7 +59,7 @@ const UpdateFood = () => {
         const updateFood = { id, foodName, foodImage, expiredDate, additionalNotes, donarName, donarImage, pickupLocation, donarEmail, foodQuantity, foodStatus }
         console.log(food)
 
-        axios.put('http://localhost:5000/foods', updateFood, { withCredentials: true })
+        axios.put('https://food-unity-server-gamma.vercel.app/foods', updateFood, { withCredentials: true })
             .then(res => {
                 console.log(res.data)
                 if (res.data.modifiedCount > 0) {

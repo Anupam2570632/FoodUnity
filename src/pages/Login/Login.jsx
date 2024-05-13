@@ -18,8 +18,11 @@ export default function Login() {
         logIn(email, password)
             .then(result => {
                 console.log(result.user);
-                toast.success('User logged in successfully!')
-                navigate(location?.state ? location.state : '/')
+                toast.success('User logged in successfully!');
+                navigate('/')
+                setTimeout(() => {
+                    navigate(location?.state ? location.state : '/');
+                }, 1000);
             })
             .catch(error => {
                 console.error(error);
@@ -31,17 +34,24 @@ export default function Login() {
         GoogleLogIn()
             .then(result => {
                 toast.success('Logged in Successfully')
-                navigate(location?.state ? location.state : '/')
+                navigate('/')
+                setTimeout(() => {
+                    navigate(location?.state ? location.state : '/');
+                }, 1000);
             })
             .catch(error => {
                 toast.error(error.message)
             })
+
     }
     const handleGithubLogIn = () => {
         GithubLogIn()
             .then(result => {
                 toast.success('Logged in Successfully')
-                navigate(location?.state ? location.state : '/')
+                navigate('/')
+                setTimeout(() => {
+                    navigate(location?.state ? location.state : '/');
+                }, 1000);
             })
             .catch(error => {
                 toast.error(error.message)

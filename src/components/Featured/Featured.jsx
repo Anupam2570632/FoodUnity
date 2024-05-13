@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 const Featured = () => {
 
     const { isPending, data: foods } = useQuery({
-        queryKey: ['foods'],
+        queryKey: ['FeaturedFoods'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/foods')
+            const res = await fetch('https://food-unity-server-gamma.vercel.app/foods')
             const data = await res.json();
 
             const filteredFoods = data.filter(food => food.foodStatus !== 'requested')

@@ -8,9 +8,9 @@ import axios from "axios";
 const ManageMyFood = () => {
     const { user } = useContext(AuthContext)
     const { isPending, data: foods, refetch } = useQuery({
-        queryKey: ['foods'],
+        queryKey: ['mainFoods'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/food?email=${user.email}`, { credentials: 'include' });
+            const res = await fetch(`https://food-unity-server-gamma.vercel.app/food?email=${user.email}`, { credentials: 'include' });
             return res.json();
         }
     });
@@ -18,7 +18,7 @@ const ManageMyFood = () => {
     const deleteFoodMutation = useMutation({
         queryKey: 'deleteFood',
         mutationFn: async (id) => {
-            const res = await axios.delete(`http://localhost:5000/foods/?id=${id}`);
+            const res = await axios.delete(`https://food-unity-server-gamma.vercel.app/foods/?id=${id}`);
             return res.data;
         },
         onSuccess: () => {

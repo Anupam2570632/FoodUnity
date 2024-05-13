@@ -9,7 +9,7 @@ const AvailableFood = () => {
     const { isPending, data: allFoods } = useQuery({
         queryKey: ['foods'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/foods');
+            const res = await fetch('https://food-unity-server-gamma.vercel.app/foods');
             return res.json();
         }
     });

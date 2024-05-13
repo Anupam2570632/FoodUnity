@@ -28,11 +28,11 @@ const FoodDetails = () => {
         console.log(requestedFood)
         const id = food._id;
         const updatedFood = { id }
-        axios.post('http://localhost:5000/requestedFoods', requestedFood, { withCredentials: true })
+        axios.post('https://food-unity-server-gamma.vercel.app/requestedFoods', requestedFood, { withCredentials: true })
             .then(res => {
                 console.log(res.data)
                 if (res.data.insertedId) {
-                    axios.patch('http://localhost:5000/foods', updatedFood, { withCredentials: true })
+                    axios.patch('https://food-unity-server-gamma.vercel.app/foods', updatedFood, { withCredentials: true })
                         .then(res => {
                             console.log(res.data)
                             if (res.data.modifiedCount > 0) {

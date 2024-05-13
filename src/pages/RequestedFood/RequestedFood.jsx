@@ -7,15 +7,15 @@ import { Link } from "react-router-dom";
 const RequestedFood = () => {
     const { user } = useContext(AuthContext)
     const { isPending, data: foods } = useQuery({
-        queryKey: ['foods'],
+        queryKey: ['allFoods'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/requestedFood?email=${user.email}`, { credentials: 'include' });
+            const res = await fetch(`https://food-unity-server-gamma.vercel.app/requestedFood?email=${user.email}`, { credentials: 'include' });
             return res.json();
         }
     });
     // const [foods, setFoods] = useState([])
     // useEffect(() => {
-    //     axios.get(`http://localhost:5000/requestedFood?email=${user.email}`, { withCredentials: true })
+    //     axios.get(`https://food-unity-server-gamma.vercel.app/requestedFood?email=${user.email}`, { withCredentials: true })
     //         .then(res => setFoods(res.data))
 
     // }, [user.email])
