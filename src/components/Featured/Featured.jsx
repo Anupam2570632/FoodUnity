@@ -42,16 +42,16 @@ const Featured = () => {
                 {
                     foods?.slice(0, 6).map((food, idx) => <div className="card mx-auto flex flex-col border shadow-lg p-5 rounded-[10px] space-y-6 w-full" key={idx}>
                         <div className="relative w-full overflow-hidden">
-                            <img className="cardImg h-[250px] rounded-[6px] w-[100%] object-cover object-center" src={food.foodImage} alt="" />
+                            <img className="cardImg h-[250px] rounded-[6px] w-[100%] object-cover object-center" src={food?.foodImage} alt="" />
                             <h2 className=" absolute inset-0 rounded-[6px] flex items-start justify-end p-6 bg-black bg-opacity-40"><span className="token rounded-sm bg-orange-400 text-[#1E3A8A] font-bold px-4 py-2">Available : {food.foodQuantity}</span></h2>
                         </div>
                         <div className="space-y-4 flex-1">
-                            <h2 className="text-[#1E3A8A] font-bold text-2xl">{food.foodName}</h2>
+                            <h2 className="text-[#1E3A8A] font-bold text-2xl">{food?.foodName}</h2>
                             <p className="text-[#1E3A8A]"><span className="text-[18px]">Expired Date : </span>{food.expiredDate}</p>
                             <p className="text-[#1E3A8A] flex items-center gap-1"><span className="text-[18px] flex gap-1 items-center"> Pickup <GoLocation /> : </span>{food.pickupLocation}</p>
                             <hr />
                             <p className="text-black italic text-[14px]">
-                                {food.additionalNotes.slice(0, 100)}...
+                                {food?.additionalNotes.length > 100 ? `${food.additionalNotes.slice(0, 100)}...` : food?.additionalNotes}
                             </p>
                             <hr />
 

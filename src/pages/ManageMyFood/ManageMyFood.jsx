@@ -50,6 +50,7 @@ const ManageMyFood = () => {
         });
     }
 
+
     if (isPending) {
         return (
             <div className="min-h-60 flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700 dark:shadow-neutral-700/70">
@@ -101,7 +102,9 @@ const ManageMyFood = () => {
                                 <td>{food.pickupLocation}</td>
                                 <td>
                                     <button onClick={() => handleDelete(food._id)} className="btn mr-4 btn-error">Delete</button>
-                                    <button className="btn btn-primary">Update</button>
+                                    <Link to={`/updateFood/${food._id}`}>
+                                        <button className="btn btn-primary">Update</button>
+                                    </Link>
                                 </td>
                             </tr>
                         ))}

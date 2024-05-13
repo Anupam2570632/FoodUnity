@@ -113,7 +113,7 @@ const AvailableFood = () => {
                                 <p className="text-[#1E3A8A] flex items-center gap-1"><span className="text-[18px] flex gap-1 items-center"> Pickup <GoLocation /> : </span>{food.pickupLocation}</p>
                                 <hr />
                                 <p className="text-black italic text-[14px]">
-                                    {food.additionalNotes.slice(0, 100)}...
+                                    {food?.additionalNotes.length > 100 ? `${food.additionalNotes.slice(0, 100)}...` : food?.additionalNotes}
                                 </p>
                                 <hr />
                                 <div className="flex gap-4 items-center">
