@@ -2,7 +2,7 @@ import Lottie from 'lottie-react';
 import faq from '../../../public/faq.json'
 const Faq = () => {
     return (
-        <div className="flex gap-6 border  border-[#ccc] rounded-md my-10 min-h-[530px] flex-col lg:flex-row items-center justify-between w-11/12 md:w-[85%] mx-auto">
+        <div className="flex gap-6 border max-w-[1500px] border-[#ccc] rounded-md my-10 min-h-[530px] flex-col lg:flex-row items-center justify-between w-11/12 md:w-[85%] mx-auto">
             <div className="lg:w-1/2">
                 <Lottie style={{ height: '500px' }} animationData={faq} />
             </div>
