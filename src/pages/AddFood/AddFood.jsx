@@ -21,7 +21,7 @@ const AddFood = () => {
         const food = { foodName, foodImage, expiredDate, additionalNotes, donarName, donarImage, pickupLocation, donarEmail, foodQuantity, foodStatus }
         console.log(food)
 
-        axios.post('http://localhost:5000/foods', food)
+        axios.post('http://localhost:5000/foods', food, { withCredentials: true })
             .then(res => {
                 console.log(res.data)
                 if (res.data.insertedId) {

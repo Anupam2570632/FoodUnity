@@ -2,17 +2,23 @@ import { useQuery } from "@tanstack/react-query";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { Link } from "react-router-dom";
+// import axios from "axios";
 
 const RequestedFood = () => {
     const { user } = useContext(AuthContext)
     const { isPending, data: foods } = useQuery({
         queryKey: ['foods'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/requestedFood?email=${user.email}`);
+            const res = await fetch(`http://localhost:5000/requestedFood?email=${user.email}`, { credentials: 'include' });
             return res.json();
         }
     });
-    console.log(foods)
+    // const [foods, setFoods] = useState([])
+    // useEffect(() => {
+    //     axios.get(`http://localhost:5000/requestedFood?email=${user.email}`, { withCredentials: true })
+    //         .then(res => setFoods(res.data))
+
+    // }, [user.email])
     if (isPending) {
         return (
             <div className="min-h-60 flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700 dark:shadow-neutral-700/70">
@@ -27,11 +33,11 @@ const RequestedFood = () => {
         );
     }
 
-    if (foods.length == 0) {
+    if (foods?.length == 0) {
         return (
             <>
                 <div className="text-blue-600 font-bold text-center text-3xl pt-20 pb-6">
-                    You haven&apos;t add any food yet.
+                    You haven&apos;t made any food requests yet.
                 </div>
                 <div className="w-full flex items-center justify-center pb-20">
                     <Link to={'/available'} className="btn btn-primary mx-auto">See Available Food</Link>
