@@ -1,11 +1,12 @@
-
+import Lottie from 'lottie-react';
+import faq from '../../../public/faq.json'
 const Faq = () => {
     return (
-        <div className="flex gap-6 border  border-[#ccc] rounded-md my-10 min-h-[530px] flex-col md:flex-row items-center justify-between w-11/12 md:w-[85%] mx-auto">
-            <div className="md:w-1/2">
-                <img className="p-6 rounded-md" src="https://plus.unsplash.com/premium_photo-1678216286021-e81f66761751?q=80&w=1846&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+        <div className="flex gap-6 border  border-[#ccc] rounded-md my-10 min-h-[530px] flex-col lg:flex-row items-center justify-between w-11/12 md:w-[85%] mx-auto">
+            <div className="lg:w-1/2">
+                <Lottie style={{ height: '500px' }} animationData={faq} />
             </div>
-            <div className="md:w-1/2 p-6">
+            <div className="lg:w-1/2 p-6">
                 <div className="collapse collapse-plus  rounded-none border border-blue-200">
                     <input type="radio" name="my-accordion-3" defaultChecked />
                     <div className="collapse-title text-xl font-medium">
