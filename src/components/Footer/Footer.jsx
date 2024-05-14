@@ -45,7 +45,18 @@ const Footer = () => {
                                     </div>
                                     <a className="w-full sm:w-auto whitespace-nowrap p-3 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Subscribe</a>
                                 </div>
-                                
+                                <div className='my-4 space-y-2'>
+                                    <div>
+                                        Email : <a className='hover:underline' href='mailto:foodunity1@gmail.com'>foodunity1@gmail.com</a>
+                                    </div>
+                                    <div>
+                                        Phone : <a className='hover:underline' href="tel:+1234567890">+1234567890</a>
+                                    </div>
+                                    <div>
+                                        Address : <a className='hover:underline'>1203, Dhake, Bangladesh.</a>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
