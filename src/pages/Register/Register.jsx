@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
     const navigate = useNavigate()
@@ -33,6 +34,9 @@ const Register = () => {
 
     return (
         <div className="w-full py-16 bg-[#f3f4f6]">
+            <Helmet>
+                <title>FoodUnity | Register</title>
+            </Helmet>
             <div className="max-w-[450px] mx-auto bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-neutral-900 dark:border-neutral-700">
                 <div className="p-4 sm:p-7">
                     <div className="text-center">

@@ -5,6 +5,7 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 const FoodDetails = () => {
     const navigate = useNavigate()
@@ -48,6 +49,9 @@ const FoodDetails = () => {
     console.log(food)
     return (
         <div className="py-16">
+            <Helmet>
+                <title>FoodUnity | Food Details</title>
+            </Helmet>
             <div className="w-11/12 md:w-[70%] mx-auto border border-gray-300 rounded-md">
                 <div className="p-4 border-b border-gray-300">
                     <h2 className="text-lg font-bold mb-2">Donor Name : {food.donarName}</h2>

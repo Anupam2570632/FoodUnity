@@ -1,44 +1,18 @@
 import axios from "axios";
 import swal from "sweetalert";
-import { useParams } from "react-router-dom";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 const UpdateFood = () => {
     const { id } = useParams()
+    const [food, setFood] = useState([]);
+    useEffect(() => {
+        axios.get(`https://food-unity-server-gamma.vercel.app/food/${id}`, { withCredentials: true })
+            .then(res => setFood(res.data))
+    }, [id])
 
-    const { isPending, data: food, refetch } = useQuery({
-        queryKey: ['food'],
-        queryFn: async () => {
-            const res = await fetch(`https://food-unity-server-gamma.vercel.app/food/${id}`, { credentials: 'include' });
-            return res.json();
-        }
-    });
-    const updateFoodMutation = useMutation({
-        queryKey: 'updateFood',
-        mutationFn: async (id) => {
-            const res = await axios.put(`https://food-unity-server-gamma.vercel.app/foods/?id=${id}`);
-            return res.data;
-        },
-        onSuccess: () => {
-            refetch();
-            swal({
-                title: "Food Updated successfully !",
-                icon: "success",
-            });
-        }
-    });
-    if (isPending) {
-        return <div className="min-h-60 flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700 dark:shadow-neutral-700/70">
-            <div className="flex flex-auto flex-col justify-center items-center p-4 md:p-5">
-                <div className="flex justify-center">
-                    <div className="animate-spin inline-block size-8 border-[3px] border-current border-t-transparent text-blue-600 rounded-full dark:text-blue-500" role="status" aria-label="loading">
-                        <span className="sr-only">Loading...</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    }
-
+    const navigate = useNavigate()
 
 
     console.log(food)
@@ -63,8 +37,12 @@ const UpdateFood = () => {
             .then(res => {
                 console.log(res.data)
                 if (res.data.modifiedCount > 0) {
-                    updateFoodMutation.mutate(id);
-                    form.reset()
+                    swal({
+                        title: "Food Updated successfully !",
+                        icon: "success",
+                    });
+                    navigate('/manageFood')
+
                 }
             })
     }
@@ -72,6 +50,9 @@ const UpdateFood = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>FoodUnity | Update Food</title>
+            </Helmet>
             <div className="relative flex flex-col mx-auto max-w-[800px] py-14 text-gray-700 bg-transparent shadow-none rounded-xl bg-clip-border">
                 <h4 className="block font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
                     Update Your Food

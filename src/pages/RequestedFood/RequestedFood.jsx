@@ -2,12 +2,12 @@ import { useQuery } from "@tanstack/react-query";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 // import axios from "axios";
 
 const RequestedFood = () => {
     const { user } = useContext(AuthContext)
     const { isPending, data: foods } = useQuery({
-        queryKey: ['allFoods'],
         queryFn: async () => {
             const res = await fetch(`https://food-unity-server-gamma.vercel.app/requestedFood?email=${user.email}`, { credentials: 'include' });
             return res.json();
@@ -47,6 +47,9 @@ const RequestedFood = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>FoodUnity | Requested Food</title>
+            </Helmet>
             <div className="overflow-x-auto max-w-[1500px] mx-auto w-11/12 md:w-[85%] py-10">
                 <table className="table">
                     {/* head */}

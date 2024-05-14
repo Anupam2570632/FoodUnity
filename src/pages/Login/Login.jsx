@@ -5,6 +5,7 @@ import { CgGoogle } from 'react-icons/cg';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { toast } from 'react-toastify';
+import { Helmet } from 'react-helmet-async';
 
 export default function Login() {
     const navigate = useNavigate()
@@ -60,6 +61,9 @@ export default function Login() {
 
     return (
         <div className='w-full bg-[#f3f4f6] py-16'>
+            <Helmet>
+                <title>FoodUnity | Login</title>
+            </Helmet>
             <div className="max-w-[400px] mx-auto bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-neutral-900 dark:border-neutral-700">
                 <div className="p-4 sm:p-7">
                     <div className="text-center">

@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import axios from "axios";
 import swal from "sweetalert";
+import { Helmet } from "react-helmet-async";
 
 const AddFood = () => {
     const { user } = useContext(AuthContext)
@@ -37,6 +38,11 @@ const AddFood = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>
+                    FoodUnity | Add Food
+                </title>
+            </Helmet>
             <div className="relative flex flex-col mx-auto max-w-[800px] py-14 text-gray-700 bg-transparent shadow-none rounded-xl bg-clip-border">
                 <h4 className="block font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
                     Add new Food

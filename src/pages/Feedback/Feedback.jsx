@@ -7,7 +7,7 @@ import 'swiper/css/navigation';
 
 
 // import required modules
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Autoplay, Navigation } from 'swiper/modules';
 import { BiSolidQuoteAltRight } from 'react-icons/bi';
 
 export default function Feedback() {

@@ -4,21 +4,22 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { Link } from "react-router-dom";
 import swal from "sweetalert";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 const ManageMyFood = () => {
-    const { user } = useContext(AuthContext)
-    const { isPending, data: foods, refetch } = useQuery({
-        queryKey: ['mainFoods'],
+    const { user } = useContext(AuthContext);
+
+    const { isLoading, data: foods, refetch } = useQuery({
+        queryKey: ['foods'],
         queryFn: async () => {
             const res = await fetch(`https://food-unity-server-gamma.vercel.app/food?email=${user.email}`, { credentials: 'include' });
             return res.json();
-        }
+        },
     });
 
     const deleteFoodMutation = useMutation({
-        queryKey: 'deleteFood',
         mutationFn: async (id) => {
-            const res = await axios.delete(`https://food-unity-server-gamma.vercel.app/foods/?id=${id}`);
+            const res = await axios.delete(`https://food-unity-server-gamma.vercel.app/foods/?id=${id}`, { withCredentials: true });
             return res.data;
         },
         onSuccess: () => {
@@ -44,14 +45,11 @@ const ManageMyFood = () => {
         }).then((willDelete) => {
             if (willDelete) {
                 deleteFoodMutation.mutate(id);
-            } else {
-                console.log('no')
             }
         });
     }
 
-
-    if (isPending) {
+    if (isLoading) {
         return (
             <div className="min-h-60 flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700 dark:shadow-neutral-700/70">
                 <div className="flex flex-auto flex-col justify-center items-center p-4 md:p-5">
@@ -68,6 +66,9 @@ const ManageMyFood = () => {
     if (foods?.length === 0) {
         return (
             <>
+                <Helmet>
+                    <title>FoodUnity | Manage My Food</title>
+                </Helmet>
                 <div className="text-blue-600 font-bold text-center text-3xl pt-20 pb-6">
                     You haven&apos;t added any food yet.
                 </div>
@@ -80,6 +81,9 @@ const ManageMyFood = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>FoodUnity | Manage My Food</title>
+            </Helmet>
             <div className="overflow-x-auto max-w-[1500px] mx-auto w-11/12 md:w-[85%] py-10">
                 <table className="table">
                     <thead>
@@ -93,7 +97,7 @@ const ManageMyFood = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {foods.map((food, idx) => (
+                        {foods?.map((food, idx) => (
                             <tr key={food._id}>
                                 <th>{idx + 1}</th>
                                 <td><img className="h-16 w-20 object-cover object-center" src={food.foodImage} alt="" /></td>

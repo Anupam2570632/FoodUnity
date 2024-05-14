@@ -4,6 +4,7 @@ import { BiSearch } from 'react-icons/bi';
 import './food.css';
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const AvailableFood = () => {
     const { isPending, data: allFoods } = useQuery({
@@ -53,6 +54,9 @@ const AvailableFood = () => {
     if (isPending) {
         return (
             <div className="min-h-60 flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700 dark:shadow-neutral-700/70">
+                <Helmet>
+                    <title>FoodUnity | Available Food</title>
+                </Helmet>
                 <div className="flex flex-auto flex-col justify-center items-center p-4 md:p-5">
                     <div className="flex justify-center">
                         <div className="animate-spin inline-block size-8 border-[3px] border-current border-t-transparent text-blue-600 rounded-full dark:text-blue-500" role="status" aria-label="loading">
@@ -66,6 +70,9 @@ const AvailableFood = () => {
 
     return (
         <div className="w-11/12 md:w-[85%] mx-auto max-w-[1500px] py-16">
+            <Helmet>
+                <title>FoodUnity | Available Food</title>
+            </Helmet>
             <div className="search flex gap-6 items-center h-14 justify-center mb-10">
                 <div className="searchDiv h-14">
                     <div className='flex w-fit h-full items-center'>
