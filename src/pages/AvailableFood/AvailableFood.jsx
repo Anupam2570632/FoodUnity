@@ -73,8 +73,8 @@ const AvailableFood = () => {
             <Helmet>
                 <title>FoodUnity | Available Food</title>
             </Helmet>
-            <div className="search flex gap-6 items-center h-14 justify-center mb-10">
-                <div className="searchDiv h-14">
+            <div className="search flex flex-col md:flex-row gap-6 items-center justify-center mb-10">
+                <div className="searchDiv">
                     <div className='flex w-fit h-full items-center'>
                         <div className='border border-gray-400 border-r-0 h-full text-xl rounded-l-full p-4 text-gray-500' >
                             <BiSearch />

@@ -43,7 +43,7 @@ const AddFood = () => {
                     FoodUnity | Add Food
                 </title>
             </Helmet>
-            <div className="relative flex flex-col mx-auto max-w-[800px] py-14 text-gray-700 bg-transparent shadow-none rounded-xl bg-clip-border">
+            <div className="relative flex flex-col px-4 mx-auto max-w-[800px] py-14 text-gray-700 bg-transparent shadow-none rounded-xl bg-clip-border">
                 <h4 className="block font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
                     Add new Food
                 </h4>
@@ -52,7 +52,7 @@ const AddFood = () => {
                 </p>
                 <form onSubmit={handleAddFood} className="max-w-screen-lg mt-8 mb-2 space-y-4">
                     <div className="flex flex-col gap-6 mb-1 w-full">
-                        <div className="flex gap-6">
+                        <div className="flex flex-col md:flex-row gap-6">
                             <div className="space-y-6 w-full">
                                 <h6
                                     className="block -mb-3 font-sans text-base antialiased font-semibold leading-relaxed tracking-normal text-blue-gray-900">
@@ -82,7 +82,7 @@ const AddFood = () => {
 
                     </div>
                     <div className="flex flex-col gap-6 mb-1 w-full">
-                        <div className="flex gap-6">
+                        <div className="flex flex-col md:flex-row gap-6">
                             <div className="space-y-6 w-full">
                                 <h6
                                     className="block -mb-3 font-sans text-base antialiased font-semibold leading-relaxed tracking-normal text-blue-gray-900">
@@ -112,7 +112,7 @@ const AddFood = () => {
 
                     </div>
                     <div className="flex flex-col gap-6 mb-1 w-full">
-                        <div className="flex gap-6">
+                        <div className="flex flex-col md:flex-row gap-6">
                             <div className="relative h-11 w-full">
                                 <h6
                                     className="block mb-3 font-sans text-base antialiased font-semibold leading-relaxed tracking-normal text-blue-gray-900">
@@ -146,7 +146,7 @@ const AddFood = () => {
 
                     </div>
                     <div className="flex flex-col gap-6 mb-1 w-full">
-                        <div className="flex gap-6">
+                        <div className="flex flex-col md:flex-row gap-6">
                             <div className="space-y-6 w-full">
                                 <h6
                                     className="block -mb-3 font-sans text-base antialiased font-semibold leading-relaxed tracking-normal text-blue-gray-900">
