@@ -15,33 +15,39 @@ const AvailableFood = () => {
         }
     });
 
-    const foods = allFoods?.filter(food => food.foodStatus !== 'requested')
+    const foods = allFoods?.filter(food => food.foodStatus !== 'requested');
 
-
-    const [isLayout, setIsLayout] = useState(true)
-
+    const [isLayout, setIsLayout] = useState(true);
     const [searchInput, setSearchInput] = useState('');
+    const [searchQuery, setSearchQuery] = useState('');
     const [selectedFood, setSelectedFood] = useState(null);
-    const [sortBy, setSortBy] = useState(null);
+    const [sortBy, setSortBy] = useState('');
 
     const handleSearchInputChange = (event) => {
         setSearchInput(event.target.value);
-        setSelectedFood(null); // Reset selected food when input changes
     };
 
-    const handleFoodSelect = (food) => {
-        setSelectedFood(food);
+    const handleSearchSubmit = (event) => {
+        event.preventDefault();
+        setSearchQuery(searchInput);
+        setSelectedFood(null); // Reset selected food when input changes
     };
 
     const handleSortChange = (event) => {
         setSortBy(event.target.value);
     };
 
+    const handleClear = () => {
+        setSearchInput('');
+        setSearchQuery('');
+        setSortBy('');
+    };
+
     let filteredFoods = foods;
 
-    if (searchInput) {
+    if (searchQuery) {
         filteredFoods = foods.filter(food =>
-            food.foodName.toLowerCase().includes(searchInput.toLowerCase())
+            food.foodName.toLowerCase().includes(searchQuery.toLowerCase())
         );
     }
 
@@ -73,10 +79,10 @@ const AvailableFood = () => {
             <Helmet>
                 <title>FoodUnity | Available Food</title>
             </Helmet>
-            <div className="search flex flex-col md:flex-row gap-6 items-center justify-center mb-10">
+            <div className="search flex flex-col lg:flex-row gap-6 items-center justify-center mb-10">
                 <div className="searchDiv">
-                    <div className='flex w-fit h-full items-center'>
-                        <div className='border border-gray-400 border-r-0 h-full text-xl rounded-l-full p-4 text-gray-500' >
+                    <form onSubmit={handleSearchSubmit} className='flex w-fit h-full p-0 overflow-hidden items-center border rounded-full border-[#ccc]'>
+                        <div className='border border-gray-400 border-r-0 h-full text-xl rounded-l-full p-4 text-gray-500'>
                             <BiSearch />
                         </div>
                         <input
@@ -84,15 +90,18 @@ const AvailableFood = () => {
                             placeholder="Search food..."
                             value={searchInput}
                             onChange={handleSearchInputChange}
-                            className="searchInput border outline-blue-500 border-gray-400 flex-1 h-full rounded-r-full p-3"
+                            name="searchText"
+                            className="searchInput flex-1 h-full outline-none p-3"
                         />
-                    </div>
+                        <input className="btn btn-accent rounded-full" type="submit" value="Search" />
+                    </form>
                 </div>
                 <div className="h-14 flex items-center gap-5 border text-xl rounded-full pl-4">
                     <label htmlFor="sortBy" className="block text-sm font-medium text-gray-700 dark:text-neutral-300">SortBy:</label>
                     <select
                         id="sortBy"
                         name="sortBy"
+                        value={sortBy}
                         onChange={handleSortChange}
                         className="h-full bloc py-2 w-full border rounded-r-full bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                     >
@@ -101,6 +110,7 @@ const AvailableFood = () => {
                         <option value="expiryDateDesc">Expiry Date (Descending)</option>
                     </select>
                 </div>
+                <button onClick={handleClear} className="btn btn-secondary rounded-full">Clear</button>
                 <button className="btn bg-green-600 hover:bg-green-700 duration-300 text-white font-bold" onClick={() => setIsLayout(!isLayout)}>Change LayOut</button>
             </div>
             {filteredFoods.length === 0 ? (
