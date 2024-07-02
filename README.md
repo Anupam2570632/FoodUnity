@@ -1,21 +1,54 @@
 # FoodUnity
+FoodUnity is a compassionate platform designed to facilitate the donation of surplus food to individuals in need. It provides a user-friendly interface for users to contribute to reducing food wastage and supporting community welfare.
 
-### Live Link : [FoodUnity](https://food-unity-web.netlify.app/)
+## Live Link : [https://food-unity-web.netlify.app/](https://food-unity-web.netlify.app/)
 
-## Features
 
-- FoodUnity is a Food Sharing Platform where users can donate surplus food to help others in need.
+## Concept
+FoodUnity aims to combat food insecurity by allowing users to easily donate surplus food items instead of discarding them, fostering a sense of community and compassion.
 
-- Users can easily donate food by adding it through the "Add Food" page.
+### Problems Solved
+- Food Wastage Reduction
 
-- Any logged-in user can request food items available on the platform.
+- Enhanced Accessibility
 
-- Donors have the flexibility to update the details of their donated food items after adding them.
+- Community Engagement
 
-- User privacy and security are prioritized, ensuring that personal information remains confidential.
+## Best and Major Features
 
-- The platform features a responsive design, ensuring seamless access and usability across various devices.
-- Users can conveniently search for specific food items by name and sort them based on their expiration dates to find items that match their needs.
-## New packages Explore
+- Responsive Design
+- Secure Authentication 
+- User-Friendly Donation Process
+
+## Technologies Used
+- React.js
+- Node.js
+- jwt
+- firebase
+- Express js
+- MongoDB
+- axios
+- Tanstack Query
+- Lottie React
+- react-helmet-async
 - React-hook-form
 - Lottie-react  
+
+
+## To Run This Site Locally
+
+**Simply run these command on your command prompt** 
+
+1. **Clone the Repository**:
+   ```sh
+   git clone https://github.com/Anupam2570632/FoodUnity.git
+2. **Navigate to the Project Directory:**
+   ```sh
+   cd FoodUnity
+3. **Install Dependencies:**
+   ```sh
+   npm install
+4. **Start the Development Server:**
+   ```sh
+   npm run dev
+  
