@@ -8,6 +8,7 @@ import { Helmet } from "react-helmet-async";
 const RequestedFood = () => {
     const { user } = useContext(AuthContext)
     const { isPending, data: foods } = useQuery({
+        queryKey:['my_requested_food', user?.email],
         queryFn: async () => {
             const res = await fetch(`https://food-unity-server-gamma.vercel.app/requestedFood?email=${user.email}`, { credentials: 'include' });
             return res.json();

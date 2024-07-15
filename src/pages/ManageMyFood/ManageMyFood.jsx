@@ -10,7 +10,7 @@ const ManageMyFood = () => {
     const { user } = useContext(AuthContext);
 
     const { isLoading, data: foods, refetch } = useQuery({
-        queryKey: ['foods'],
+        queryKey: ['my_foods', user?.email],
         queryFn: async () => {
             const res = await fetch(`https://food-unity-server-gamma.vercel.app/food?email=${user.email}`, { credentials: 'include' });
             return res.json();

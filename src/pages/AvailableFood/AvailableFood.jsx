@@ -8,7 +8,7 @@ import { Helmet } from "react-helmet-async";
 
 const AvailableFood = () => {
     const { isPending, data: allFoods } = useQuery({
-        queryKey: ['foods'],
+        queryKey: ['allFoods'],
         queryFn: async () => {
             const res = await fetch('https://food-unity-server-gamma.vercel.app/foods');
             return res.json();
